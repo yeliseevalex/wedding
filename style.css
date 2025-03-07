@@ -12,6 +12,51 @@ body {
     color: #838383;
     overflow-x: hidden;
 }
+.main-loading{
+    text-align: center;
+}
+
+.loading {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: #838383;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #F7F0EA;
+    z-index: 1000;
+    transition: opacity 1s ease-in-out;
+}
+
+.loading-subtext {
+    font-size: 1.5rem;
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    transition: width 1.5s ease-in-out, opacity 1.5s ease-in-out;
+}
+
+.loading-date {
+    font-size: 2rem;
+    opacity: 0;
+    transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
+    margin: 0;
+    font-family: 'Herr Von Muellerhoff';
+    font-size: 40px;
+}
+
+.content {
+    display: none;
+}
+
+.loading[style*="display: none"] ~ .content {
+    display: block;
+}
+
+
 
 .invite-section {
     padding: 30px;
