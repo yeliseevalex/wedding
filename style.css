@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Garamond&display=swap');
 
+html{
+    overflow-x: hidden;
+}
+
 body {
     background-color: #F7F0EA;
     margin: 0;
     font-family: 'Garamond', serif;
     color: #838383;
+    overflow-x: hidden;
 }
 
 .invite-section {
@@ -528,7 +533,7 @@ body {
     transform: translateY(-50%);
     width: 10%;           /* Максимальная длина линии */
     height: 1px;           /* Толщина линии */
-    background-color: #f87373;
+    background-color: #838383;
     margin-right: auto;     /* Отступ между линией и блоком */
 }
 
@@ -646,7 +651,13 @@ body {
     transform: translateY(-50%);
 }
 
+.waiting{
+    background-color: #FFFBF2;
+}
+
 .waiting-container {
+    top: 5px;
+    background-color: #FFFBF2;
     position: relative;
     display: inline-block; /* Чтобы контейнер подстраивался под размер изображения */
 }
@@ -768,6 +779,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-bottom: 15px;
+    padding-top: 10px;
 }
 
 .form-group label{
@@ -833,6 +845,7 @@ textarea::-webkit-input-placeholder {
     margin: 0;
     margin-bottom: 10px;
     margin-top: 5px;
+    text-align: center;
 }
 
 .form-group .checkbox-group label{
@@ -843,7 +856,7 @@ textarea::-webkit-input-placeholder {
 .checkbox-group{
     display: flex;
     justify-content: space-between;
-    width: 60%;
+    width: 75%;
     margin-bottom: 10px;
 }
 
