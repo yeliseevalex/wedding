@@ -181,7 +181,7 @@
                     <span class="number-info-propose">1</span>
                 </div>
             </div>
-            <div class="info-propose">
+            <div class="info-propose" style="margin-bottom: 10px;">
                 <div class="rect-info-propose">
                     <span class="number-info-propose">2</span>
                     <span class="text-info-propose">
@@ -193,7 +193,7 @@
                     </span>
                 </div>
             </div>
-            <div class="info-propose">
+            <div class="info-propose"  style="margin-bottom: 20px;">
                 <div class="rect-info-propose">
                     <span class="text-info-propose">
                         Если у Вас появится желание купить что- 
@@ -634,18 +634,40 @@
       document.body.removeChild(link);
     });
     </script>
+
     <script>
-document.getElementById("myForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Убираем стандартную отправку формы
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Убираем стандартную отправку формы
 
-    let submitButton = document.querySelector(".submit-div");
-    submitButton.innerHTML = "<p>Отправлено</p>";
-    submitButton.style.pointerEvents = "none"; // Блокируем нажатие
-    submitButton.style.opacity = "0.6"; // Делаем кнопку визуально неактивной
+        let submitButton = document.querySelector(".submit-div");
+        submitButton.innerHTML = "<p>Отправлено</p>";
+        submitButton.style.pointerEvents = "none"; // Блокируем нажатие
+        submitButton.style.opacity = "0.6"; // Делаем кнопку визуально неактивной
 
-    // Здесь можно добавить код для отправки формы через AJAX, если нужно
+        // Здесь можно добавить код для отправки формы через AJAX, если нужно
+    });
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  const blocks = document.querySelectorAll('.info-propose');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Добавляем класс для запуска анимации
+        entry.target.classList.add('animate');
+        // После анимации больше не наблюдаем за этим элементом
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 }); // Порог срабатывания, можно настроить по необходимости
+
+  blocks.forEach(block => observer.observe(block));
 });
-</script>
+
+
+    </script>
 
 </body>
 </html>
