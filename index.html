@@ -54,7 +54,7 @@
             </div>
             <div class="s-main-div">
                 <div class="s-main-rect-div">
-                    <span class="s-main-text">
+                    <span class="s-main-text anim-slide slide-left-to-right">
                         Совсем скоро наступит прекрасный момент в 
                         нашей совместной жизни. Мы бы хотели 
                         провести этот день в кругу близких друзей и 
@@ -76,7 +76,7 @@
         <section class="info-section">
             <div class="s-main-div">
                 <div class="s-main-rect-div">
-                    <span class="s-main-text">
+                    <span class="s-main-text anim-slide slide-right-to-left">
                         Локация церемонии, бакнкета и
                         тайминг чудесного дня будут известны немного 
                         позже, но мы обещаем, что совсем скоро 
@@ -256,16 +256,16 @@
                 <div class="main-div-text-chat">
                     <span class="main-text-chat">Мы создали телеграм-чат для нашего праздника</span>
                 </div>
-                <div class="main-info-div-chat">
-                    <span class="main-info-text-chat">можно ближе познакомиться с гостями, хотя все другдруга уже заочно знают или знакомы лично :)</span>
+                <div class="main-info-div-chat anim-slide slide-left-to-right">
+                    <span class="main-info-text-chat">можно ближе познакомиться с гостями, хотя все друг друга уже заочно знают или знакомы лично :)</span>
                 </div>
-                <div class="main-info-div-chat">
+                <div class="main-info-div-chat anim-slide slide-left-to-right">
                     <span class="main-info-text-chat">узнать дополнительную информацию, а так же бытьв курсе событий и следить за обновлениями</span>
                 </div>
-                <div class="main-info-div-chat">
+                <div class="main-info-div-chat anim-slide slide-left-to-right">
                     <span class="main-info-text-chat">можете написать туда, чтобы мы могли помочь Вамопределиться с билетами, с размещением</span>
                 </div>
-                <div class="main-info-div-chat">
+                <div class="main-info-div-chat anim-slide slide-left-to-right">
                     <span class="main-info-text-chat">и конечно же, Вы можете поделитьсяфотографиями и видео уже в день торжества :)</span>
                 </div>
                 <div class="footer-chat">
@@ -553,11 +553,16 @@
             const date = document.querySelector(".loading-date");
 
             // Анимация появления текста слева направо
-            subtext.style.opacity = "1";
-            subtext.style.width = "100%";
+            // subtext.style.opacity = "1";
+            // subtext.style.width = "100%";
+            setTimeout(() => {
+                subtext.style.transform = "scale(1.5)";
+                subtext.style.opacity = "1";
+            }, 1000);
 
             // Анимация увеличения даты
             setTimeout(() => {
+                
                 date.style.transform = "scale(2)";
                 date.style.opacity = "1";
             }, 1500);
@@ -702,6 +707,25 @@
         });
 
 
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const blocks = document.querySelectorAll('.anim-slide');
+        
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Добавляем класс для запуска анимации
+                entry.target.classList.add('animate');
+                // Прекращаем наблюдение за элементом после срабатывания анимации
+                observer.unobserve(entry.target);
+            }
+            });
+        }, { threshold: 0.1 }); // Порог срабатывания – 10% видимости
+        
+        blocks.forEach(block => observer.observe(block));
+        });
     </script>
 
 </body>

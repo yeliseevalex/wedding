@@ -31,12 +31,14 @@ body {
 }
 
 .loading-subtext {
-    font-size: 1.5rem;
+    font-size: 2rem;
     opacity: 0;
     overflow: hidden;
-    white-space: nowrap;
-    width: 0;
-    transition: width 1.5s ease-in-out, opacity 1.5s ease-in-out;
+    /* white-space: nowrap; */
+    /* width: 0; */
+    transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
+    position: relative;
+    top: -65px;
 }
 
 .loading-date {
@@ -481,6 +483,20 @@ body {
   
   .info-propose.animate:nth-child(even) {
     animation: slideInRight 0.8s ease-out forwards;
+  }
+
+  .anim-slide {
+    opacity: 0;
+  }
+  
+  /* Анимация для элементов, появляющихся слева направо */
+  .anim-slide.animate.slide-left-to-right {
+    animation: slideInLeft 1s ease-out forwards;
+  }
+  
+  /* Анимация для элементов, появляющихся справа налево */
+  .anim-slide.animate.slide-right-to-left {
+    animation: slideInRight 1s ease-out forwards;
   }
 
 .main-propose{
